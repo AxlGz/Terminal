@@ -1,12 +1,12 @@
-**dicionario{
+﻿Dicionario{
 Directorio: Carpeta.
-~: vendría a ser C:// en Windows.
-[]:teclas que hay que precionar.
+~: Vendría a ser C:// en Windows.
+[]:Teclas que hay que presionar.
 }
 
 En la Terminal vamos a trabajar casi siempre con 2 cosas, los "comandos(*)" y las "banderas(->)"
-Los comandos: Son los que determinan la accion a realizar.
-Las banderas: Son las que nos dejan modificar el comportamiento de ese comando.
+    • Los comandos: Son los que determinan la accion a realizar.
+    • Las banderas: Son las que nos dejan modificar el comportamiento de ese comando.
 
 *ls: listar directorios.
  -> "-l": Muestra los directorios hacia abajo (l= En forma de lista).
@@ -19,12 +19,14 @@ Las banderas: Son las que nos dejan modificar el comportamiento de ese comando.
 
 *cd: Nos permite movernos entre directorios.
   -> "..":Nos mueve al directorio padre, es decir si estamos en "~/carpeta1/carpeta2" nos va a mandar a "~/carpeta1".
+
   -> "~": Nos mueve al Home. Tambien funciona si solo escribimos "cd" y damos Enter.
-  -> "../": Permite movernos a otra carpeta que se encuentre dentro de nuestro directorio padre. ej: "cd ../carpeta3" (damos un pasito para atras y otro para adelante pero en otra carpeta).
+
+ -> "../": Permite movernos a otra carpeta que se encuentre dentro de nuestro directorio padre. ej: "cd ../carpeta3" (damos un pasito para atrás y otro para adelante pero en otra carpeta).
 
 *mkdir (NombreDelDirectorio): Crea un directorio.
 
-*touch: crea un archivo en blanco y si ya existte un archivo con ese nombre le cambia la fehca de modificación.
+*touch: crea un archivo en blanco y si ya existe un archivo con ese nombre le cambia la fehca de modificación.
 
 *mv: mueve un archivo o directorio a una ruta especificada o si en cambio colocamos otro nombre le va a cambiar el nombre a ese archivo o directorio.
 
@@ -49,40 +51,38 @@ Las banderas: Son las que nos dejan modificar el comportamiento de ese comando.
   
 *echo: imprime algo en consola. ej: $ echo "Hello mom :D".
 
-*alias: Nos servirá para reemplazar un comando o serie de comandos con otro más corto y sencillo. ej: (alias open='xdg-open')
-  OJO los alias solo sirven mientras se tenga la terminal abierta. para guardar los alias tenemos que escribir el comando en 
-  un archivo llamado ".bashrc"  guardarlo, cerrar la consola y volver a abrirla.
+*alias: Nos servirá para reemplazar un comando o serie de comandos con otro más corto y sencillo. ej: (alias open='xdg-open') OJO los alias solo sirven mientras se tenga la terminal abierta. para guardar los alias tenemos que escribir el comando en un archivo llamado ".bashrc"  guardarlo, cerrar la consola y volver a abrirla.
   Si estamos usado OhMyZsh (Recomiendo descargar esta terminal) tenemos que buscar el archivo ".zshrc" y hacer lo mismo.
   
 *which: nos permite saber la ubicacion de algo, ya sea un programa, comando, etc. ej: which vim (es el editor de texto de la terminal)
 
-**shortcuts{
+Shortcuts{
 *[Ctrl + r]: con este shortcut podemos buscar comandos hechos anteriormente.
 *Clear ó [Ctrl + l]: limpia la terminal.
 *[Ctrl + c]: Termina la ejecucion de procesos. ej: ejecuten "ping google.com" y despues de un tiempo haga el shortcut, esto debería parar todo.
 }
 
-**Streams en la terminal{
+Streams en la terminal{
 *stdin:Es aquello que nosotros le mandamos a un programa para que haga algo.
 *stdout: Es la salida estandar, es decir, lo que nos muetra el programa.
 *stderr: Es la salida por la cual muestra si sucedió algún error
 
-Cuando ejecutamos un programa podemos enviar el stdout y el stderr a archivos aparte para luego analizarlos mas facilmente, en
+Cuando ejecutamos un programa podemos enviar el stdout y el stderr a archivos aparte para luego analizarlos mas fácilmente, en
 caso de necesitarlo.
 nota: ">" nos funciona para enviar algo a un archivo.
 
-ej: (Para este ejemplo recomiendo crear una carpeta y luego entrar en ella para realizalo, OJO todo desde la terminal c;)
-   Ya que estamos en la carpeta, vamos a ejecutar el comando "ping google.com 1>out 2>error"(Tranquilos que ya vamos a 
+ej: (Para este ejemplo recomiendo crear una carpeta llamada google y luego entrar en ella para realizarlo, OJO todo desde la terminal c;)
+
+Ya que estamos en la carpeta, vamos a ejecutar el comando "ping google.com 1>out 2>error"(Tranquilos que ya vamos a 
    explicar esto) no debería aparecer nada, porque la salida la estamos guardando y no mostrando como lo hace por defecto. 
-   si quieren ver algún error, solo desconecten el pc de internet, esperen 2seg y vuelvan a conetarlo. Ahora ejecuten el 
+   si quieren ver algún error, solo desconecten el pc de internet, esperen 2seg y vuelvan a conectarlo. Ahora ejecuten el 
    shortcut [Ctrl + c] y revisen que hay en la carpeta que crearon, debería haber un archivo out y uno error en los cuales se 
    encuentran los log de el comando.
 
-bash(la terminal) permite tener 2 variables de salida, 1 que es stdout y 2 que es stderr, en caso de solo querer stdout 
-podemos ejecutar "ping google.com >out" porque bash va a asumir que solo queremos el 1.
+bash(la terminal) permite tener 2 variables de salida, 1 que es stdout y 2 que es stderr, en caso de solo querer stdout podemos ejecutar "ping google.com >out" porque bash va a asumir que solo queremos el 1.
 
-Si ejecutamos un programa y mandamos uno de nuetros std a un archivo que ya existe, se va a borrar ese archivo y va a 
-empezar de cero. Si quisieramos que no se borrara y que solo se concatene tenemos que usar ">>". ej: "ping google.com >> out"
+Si ejecutamos un programa y mandamos uno de nuestros std a un archivo que ya existe, se va a borrar ese archivo y va a 
+empezar de cero. Si quisiéramos que no se borrara y que solo se concatene tenemos que usar ">>". ej: "ping google.com >> out"
 
 Y para mandar todo a un solo archivo es con: "ping google.com 1>todo 2>&1".
 traducción: Quiero que hagas un ping a google y que el stdout lo mandes al archivo "todo" y el stderr lo mandes a donde sea
