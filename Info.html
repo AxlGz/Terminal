@@ -144,7 +144,8 @@
       <strong>*[Ctrl + r]</strong>: con este shortcut podemos buscar comandos hechos anteriormente.<br>
       <strong>*clear ó [Ctrl + l]</strong>: limpia la terminal.<br>
       <strong>*[Ctrl + c]</strong>: Termina la ejecucion de procesos. ej: ejecuten "ping google.com" y despues de un tiempo haga el shortcut, esto debería parar todo.<br>
-      }<br>
+      <strong>*[Ctrl +k]</strong>: Borra todo lo que se encuentre después del cursor.
+    }<br>
       <br>
     </p>
     
@@ -189,21 +190,126 @@
       <strong>*top</strong>: Nos muestra todos los procesos que están corriendo en la computadora (Es como el administrador de tareas de Windows).
     </p>
   </div>
+  
   <div>
-    <p><strong>*kill -9</strong>: Permite "matar" un proceso mediante su PID, que podemos encontrar usando el comando "top"</p>
+    <p><strong>*kill -9</strong>: Permite "matar" un proceso mediante su PID, que podemos encontrar usando el comando "top".</p>
+  </div>
+  
+  <div>
+    <p><strong>Concatenar comandos</strong>: Con ";" podemos hacer esta tarea, ej: $ echo "hola" ; echo "como estás?"</p>
   </div>
 
+  
+
+  <div>
+    <p>
+      <strong>*ps</strong>: Muestra una lista de tareas no interactiva. <br><br>
+
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>-> "-wA"</strong>: Muestra TODOS los procesos.
+    </p>
+    <p></p>
+  </div>
+
+  <div>
+    <p>
+      <strong>wc</strong>: "Word count" sirve para contar cosas: <br><br>
+      
+      &nbsp;&nbsp;&nbsp;&nbsp; <strong>-> "-l"</strong>: Líneas.
+      &nbsp;&nbsp;&nbsp;&nbsp; <strong>-> "-w"</strong>: Palabras.
+      &nbsp;&nbsp;&nbsp;&nbsp; <strong>-> "-c"</strong>: Bytes.
+      &nbsp;&nbsp;&nbsp;&nbsp; <strong>-> "-m"</strong>: Caracteres.
+    </p>
+  </div>
+<div>
+  <p><strong>Concatenar comandos com "|":</strong> Sí quisieramos no solo concatenarlos si no que también le pasaramos el stdout de uno a otro se hace con "|", y no, no es una "i" mayúscula ni una "L" este carater se llama Pleca.</p>
+  <p><strong>Ejemplo de uso</strong>: $ ps -wA | wc -l.</p>
+</div>
+
+  <div>
+    <p>
+      <strong>*uptime:</strong> Muestra información general sobre el uso del pc.
+    </p>
+  </div>
+  
+  <div>
+    <h2>Power tools:</h2>
+    <p>
+      <strong>*grep:</strong> Busca una cadena de caracteres dentro de archivos. ej: grep <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; <strong>-> "-i"</strong>: Que no importen las mayúsculas o minúsculas. <br><br>
+      <strong>*find:</strong> Busca archivos, para que haga su trabajo debemos pasarle una ruta de búsqueda y el nomrbre de los que queremos que busque, siempre debemos colocarlo después de "-name". ej: find ./home/user/ -name "*.txt".<br><br>
+      <strong>*curl:</strong> Emula un browser, pero solo emula los request y los trae. El comando curl se usa para transderir archivos desde un servidor, es compatiblr con variosprotocolos, como http y https.<br>
+      <br> También puede cumplir con muchas funciones, como soporte de proxy, autenticación de usuarios, publicación http, etc. <br><br>
+      &nbsp; &nbsp; &nbsp; &nbsp; <strong>-> "-O":</strong> Permite descargar la página de la url.
+    </p>
+  </div>
+
+  <div>
+    <p>
+      <strong>*zip/unzip</strong> comprime y descomprime un o más archivos respectivamente.
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;<strong>-> "unzip -vl":</strong> muestra el contenido del archivo, sin descomprimirlo.
+    </p>
+  </div>
+
+  <div>
+    <p>
+      <strong>du</strong>: Muestra el uso de disco.<br><br>    
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>-> a</strong>Muestra lo que ocupan los archivos ademas de los ficheros.<br><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>-> s</strong> Muestra la suma total<br><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>-> h</strong>Mostrar humanamente<br><br>
+    </p>
+  </div>
+  <div>
+    <p>
+      <strong>*crontab</strong>: {Permite automatizar scripts o comandos}.
+    </p>
+  </div>
+
+  <div>
+    <p>
+      <strong>df</strong>: Muestra el espacio disponible en el disco.
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>-> "-h"</strong>Mostrar humanamente<br><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong>-> "-P"</strong>Formato portable<br><br>
+    </p>
+  </div>
+
+  
+  <div>
+    <h2>Usuarios y permisos</h2>
+    <p>
+      <strong>*whoami:</strong>Muestra que usuario somos. <br>
+      <strong>*chmod:</strong> permite configurar los permisos de lectura, escritura y ejecucion de archivos o directorios.
+      <br><br>
+      &nbsp;&nbsp;Para ello hay que colocar "chmod 7(Propietario)|(5Grupos)|4(Otros) (url/archivo)"
+      <br><br>Los permisos son asignados por números y cada número es para un tipo de usuario,  el 7 en este caso es para propietario de ese archivo, el 5 para grupos y el 4 para cualquier otro.
+    </p>
+   <h2>Valor de los número de chmod</h2>
+   <p>
+     <br> Permiso de lectura (r)=4
+     <br> Permiso de escritura (w)=2 
+     <br> Permiso de ejecución (x)=1
+     <br>Al final estos numeros se suman y el resultado indica cuales permiso tiene ese tipo de usuario y se van colocando uno al lado del otro sin espacios.
+     <br><br>
+     Ejemplos: <br><br>
+     A) Si el propietario quiere tener acceso total se le coloca el numero 7, porque se suma (r)+(w)+(x)=7
+     <br>Si queremos que los grupos tenga sólo de lectura sería 4, (r)+(0)+(0)=4.
+      <br> y por úlimo, queremos que cualquier otro no tenga ningun permiso, sería con 0 porque (0)+(0)+(0)=0. 
+      <br>
+      <strong>Entonces en este caso el comando completo sería: "chmod 740 (url)".</strong>
+      <br><br>
+    B)El propietario no quiere poder ejecutar pero si leer y escribir, (r)+(w)+(0)=6. <br>
+    los grupos quemros que sólo puedan ejecutar y escribir, (0)+(w)+(x)=3. <br>
+    y que los otros tengan todos los permisos, (r)+(w)+(x)=7.
+    <br><strong> El comando sería: "chmod 637 (url)"</strong>
+  </div>
+      
+      
   <p id="diccionario">
-      <h3>Dicionario:</h3>
+      <h3>Glosario de Términos:</h3>
       <div>
         &nbsp;&nbsp;&nbsp;&nbsp;* <strong>Directorio</strong>: Carpeta.<br>
         &nbsp;&nbsp;&nbsp;&nbsp;* <strong>~</strong>: Vendría a ser C:// en Windows.<br>
         &nbsp;&nbsp;&nbsp;&nbsp;* <strong>[]</strong>: Teclas que hay que presionar.<br>
       </div>
-    
- 
-      
-      
   
 </body>
 </html>
